@@ -1,0 +1,26 @@
+#view canvas{touch-action:none;user-select:none;-webkit-user-select:none}
+.viewer-controls{padding:10px 16px;background:#fff;border-top:1px solid #ccd8cf;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.viewer-controls button{min-height:44px;min-width:44px;font-size:14px;touch-action:manipulation}
+.viewer-controls button[aria-pressed=true]{background:#24594d;color:#fff;border-color:#24594d}
+.viewer-controls .gesture-help{flex-basis:100%;font-size:13px;color:#50665d;margin:0;line-height:1.5}
+.viewer-controls .expand{margin-left:auto}
+#view .badge{pointer-events:none}
+.model-expanded{overflow:hidden!important}
+.model-expanded #panel-model main{position:fixed;inset:0;z-index:100;background:#edf0e8;display:flex;flex-direction:column;height:100vh;height:100dvh;padding-top:env(safe-area-inset-top)}
+.model-expanded #view{flex:1;min-height:0;height:auto}
+.model-expanded .toolbar{flex-shrink:0;flex-wrap:nowrap;overflow-x:auto;padding:8px;gap:6px}
+.model-expanded .toolbar button{flex-shrink:0;min-height:44px}
+.model-expanded .viewer-controls{flex-shrink:0;padding-bottom:max(10px,env(safe-area-inset-bottom))}
+@media(max-width:900px){
+ #panel-model .toolbar{flex-wrap:nowrap;overflow-x:auto;padding:8px;gap:6px;scrollbar-width:thin}
+ #panel-model .toolbar button{flex-shrink:0;min-height:44px;font-size:14px}
+ #view{height:54vh;height:54svh;min-height:320px}
+ #view .badge{bottom:8px;left:10px;right:10px;padding:6px 8px;font-size:11px;max-width:none}
+ .viewer-controls{padding:8px 10px;gap:6px;display:grid;grid-template-columns:1fr 1fr 44px 44px 1fr}
+ .viewer-controls button{padding:8px 6px}
+ .viewer-controls .expand{grid-column:1/3;margin:0}
+ .viewer-controls .overview{grid-column:3/5}.quick-names{grid-column:5/6}
+ .viewer-controls .gesture-help{grid-column:1/-1;font-size:12px}
+ .model-expanded #view{min-height:0}
+}
+@media(max-height:500px) and (orientation:landscape){.model-expanded .gesture-help,.model-expanded .badge{display:none}.model-expanded .viewer-controls{display:flex;padding:4px 10px}.model-expanded .viewer-controls button{min-height:40px}.model-expanded .toolbar{padding:4px 8px}}
